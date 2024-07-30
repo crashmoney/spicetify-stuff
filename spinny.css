@@ -1,0 +1,98 @@
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#fad-art,
+#fad-art-image {
+  animation: rotating 75s linear infinite !important;
+  position: relative !important;
+}
+
+#fad-art {
+  clip-path: circle(50% at 50% 50%) !important;
+  overflow: hidden; /* Ensures that pseudo-elements do not overflow */
+}
+
+#fad-art-image {
+  width: 100%; /* Make sure the image scales correctly */
+  height: auto; /* Maintain aspect ratio */
+}
+
+#fad-art::after {
+  content: '' !important;
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none !important;
+}
+
+#fad-art::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 12% !important;
+  height: 12% !important;
+  border-radius: 50%;
+}
+
+#fad-details {
+  max-width: 520px !important;
+}
+
+#fad-details #fad-title {
+  font-size: 1.8em !important;
+  font-weight: 800 !important;
+}
+
+#fad-details #fad-artist {
+  margin-top: 0.625em;
+  font-size: 1.1em !important;
+}
+
+#fad-details #fad-album {
+  margin-top: 6px;
+  font-size: 1.1em !important;
+  font-style: italic !important;
+}
+
+#fad-details #fad-artist > *,
+#fad-details #fad-album > *,
+#fad-details #fad-status > #fad-controls > * > svg {
+  vertical-align: middle;
+}
+
+#fad-details #fad-artist > svg {
+  width: 1em;
+  height: 1em;
+}
+
+#fad-details #fad-album > svg {
+  width: 1em;
+  height: 1em;
+}
+
+#fad-play > svg {
+  width: 24px;
+  height: 24px;
+}
+
+#fad-art,
+#fad-art-image,
+#fad-art::before,
+#fad-art::after {
+  filter: none !important; /* Ensures no blur is applied */
+}
+
+#fad-art-inner {
+  filter: none !important;
+  backdrop-filter: none !important
+}
